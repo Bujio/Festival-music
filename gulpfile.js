@@ -1,10 +1,13 @@
 //Vamos a compilar SASS para transformarlo en CSS
 
 const { src, dest, watch } = require("gulp");
+const gulpPlumber = require("gulp-plumber");
 const sass = require("gulp-sass")(require("sass"));
+const plumber = require("gulp-plumber")
 
 function css(cb) {
   src("./src/scss/**/*.scss") //Identificar el archivo de SASS y su ubicación
+    .pipe(plumber()) //para que aunque haya errores no se caiga ña ejecución
     .pipe(sass()) //Compilarlo con el script del package.json
     .pipe(dest("build/css")); //Almacenarlo en el disco duro
 
