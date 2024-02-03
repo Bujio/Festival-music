@@ -1,7 +1,6 @@
 //Vamos a compilar SASS para transformarlo en CSS
 
 const { src, dest, watch } = require("gulp");
-const gulpPlumber = require("gulp-plumber");
 const sass = require("gulp-sass")(require("sass"));
 const plumber = require("gulp-plumber")
 
