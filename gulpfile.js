@@ -8,6 +8,7 @@ const plumber = require("gulp-plumber");
 
 //IMAGENES
 const imagemin = require("gulp-imagemin"); //dependencia para aligerar las imagenes jpg
+const avif = require("gulp-avif");
 const webp = require("gulp-webp"); //dependencia para pasar las imagenes que tengamos a formato webp
 const cache = require("gulp-cache");
 
@@ -30,6 +31,14 @@ function imagenes(cb) {
   cb();
 }
 
+function versionAvif(cb) {
+  const opciones = {
+    quality: 50,
+  };
+  src("src/img/**/*.{png,jpg}").pipe(avif(opciones)).pipe(dest("build/img"));
+  cb();
+}
+
 function versionWebp(cb) {
   const opciones = {
     quality: 50,
@@ -46,4 +55,5 @@ function dev(cb) {
 exports.css = css;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
-exports.dev = parallel(imagenes, versionWebp, dev); //parallel ejecuta todas las functions a la vez.
+exports.versionAvif = versionAvif;
+exports.dev = parallel(imagenes, versionAvif, versionWebp, dev); //parallel ejecuta todas las functions a la vez.
