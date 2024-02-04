@@ -21,6 +21,11 @@ function css(cb) {
   cb(); //avisa a gulp de cuando llegamos al final de la tarea
 }
 
+function javascript(cb) {
+  src("./src/js/**/*.js").pipe(dest("build/js"));
+  cb();
+}
+
 function imagenes(cb) {
   const opciones = {
     optimizationLevel: 3,
@@ -49,11 +54,13 @@ function versionWebp(cb) {
 
 function dev(cb) {
   watch("./src/scss/**/*.scss", css); // el watch sirve para que esté mirando el archivo css y cada vez que note un cambio, ejecutará la function css
+  watch("./src/js/**/*.js", javascript); // el watch sirve para que esté mirando el archivo js y cada vez que note un cambio, ejecutará la function js
   cb();
 }
 
 exports.css = css;
+exports.js = javascript;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.dev = parallel(imagenes, versionAvif, versionWebp, dev); //parallel ejecuta todas las functions a la vez.
+exports.dev = parallel(imagenes, versionAvif, versionWebp, javascript, dev); //parallel ejecuta todas las functions a la vez.
