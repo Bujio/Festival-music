@@ -515,7 +515,7 @@ img {
 }
 
 .lineup {
-  background-color: #c583e6;
+  background-color: #876499;
   padding: 5rem 0;
 }
 .lineup h3, .lineup p {
@@ -653,4 +653,73 @@ img {
 }
 .btn-cerrar:hover {
   cursor: pointer;
+}
+
+.entradas {
+  padding: 5rem 0;
+}
+.entradas h3 {
+  text-align: center;
+  color: #ffffff;
+}
+@media (min-width: 768px) {
+  .entradas .contenedor-entradas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+
+.pase {
+  color: black;
+}
+.pase-header, .pase-footer {
+  padding: 0.4rem;
+  margin: 0;
+}
+.pase-header p, .pase-footer p {
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+.pase-header {
+  background-color: #f53756;
+}
+.pase-body {
+  background-color: #ffffff;
+}
+.pase-body ol {
+  margin-left: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pase-body ol li, .pase-body ol :nth-child(odd) {
+  border-bottom: 1px solid #b2b2b2;
+  background-color: #ffffff;
+  padding: 1rem;
+}
+.pase-footer {
+  background-color: #752f97;
+}
+.pase-footer p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nombre-pase {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.site-footer {
+  background-color: #f53756;
+  padding: 1rem;
+}
+.site-footer p {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
 }
